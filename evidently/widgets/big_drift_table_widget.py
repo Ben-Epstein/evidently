@@ -53,7 +53,7 @@ class BigDriftTableWidget(Widget):
 
             utility_columns = [date_column, id_column, target_column, prediction_column]
 
-            num_feature_names = list(set(reference_data.select_dtypes([np.number]).columns) - set(utility_columns))
+            num_feature_names = list(set(reference_data.select_dtypes(['float64','float32','int64','int32','int16','int8']).columns) - set(utility_columns))
             cat_feature_names = list(set(reference_data.select_dtypes([np.object]).columns) - set(utility_columns))
 
         #set params data
